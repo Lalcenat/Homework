@@ -1,0 +1,19 @@
+body {
+    background: white;
+    }
+    .container,
+    .container-fluid {
+    background: pink;
+    }
+
+.nav-link title {
+    text-align: right
+} 
+
+.row-left {
+    float: left;
+}
+
+.row-right {
+    float: right;
+}

@@ -7,14 +7,14 @@ function buildMetadata(sample) {
     var MetaData = `/metadata/${sample}`;
     d3.json(MetaData).then(function(response) 
     // Use `.html("") to clear any existing metadata
-    var panelData = d3.select("#sample-metadata");
-    panelData.html("");
+    var panel_Data = d3.select("#sample-metadata");
+    panel_Data.html("");
     // Use `Object.entries` to add each key and value pair to the panel
     // Hint: Inside the loop, you will need to use d3 to append new
     // tags for each key-value in the metadata.
     var data = Object.entries(response);
     data.forEach(function(item) {
-    panelData.append("div").text(item);
+    panel_Data.append("div").text(item);
    });
    })
     // BONUS: Build the Gauge Chart
@@ -27,32 +27,32 @@ function buildCharts(sample) {
   var sampleData = `/samples/${sample}`;
   
   d3.json(sampleData).then(function(response){
-    var topTenOtuIds = response.otu_ids.slice(0,9);
-    var topOtuLabels = response.otu_labels.slice(0,9);
+    var topTenIds = response.otu_ids.slice(0,9);
+    var topLabels = response.otu_labels.slice(0,9);
     var topTenSampleValues = response.sample_values.slice(0,9);
 
 
     // @TODO: Build a Bubble Chart using the sample data
     d3.json(sampleData).then(function(response){
-      var bubbleOtuIds = response.otu_ids;
-      var bubbleOuLabels = response.otu_labels;
+      var bubbleIds = response.otu_ids;
+      var bubbleLabels = response.otu_labels;
       var bubbleSampleValues = response.sample_values;
   
       var bubbleChartData = {
         mode: 'markers',
-        x: bubbleOtuIds,
+        x: bubbleIds,
         y: bubbleSampleValues,
-        text: bubbleOuLabels,
-        marker: {color: bubbleOtuIds, colorscale: 'Rainbow', size: bubbleSampleValues}
+        text: bubbleLabels,
+        marker: {color: bubbleIds, colorscale: 'Rainbow', size: bubbleSampleValues}
       };
   
-      var bblData = [bubbleChartData];
+      var bubbleData = [bubbleChartData];
     // @TODO: Build a Pie Chart
 
     var data = [{
-      "labels": topTenOtuIds,
+      "labels": topTenIds,
       "values": topTenSampleValues,
-      "hovertext": topOtuLabels,
+      "hovertext": topLabels,
       "type": "pie"
     }];
     
@@ -64,7 +64,7 @@ function buildCharts(sample) {
     width: 1200
     };
   
-  Plotly.newPlot('bubble', bblData, layout); 
+  Plotly.newPlot('bubble', bubbleData, layout); 
 })
 })
     // HINT: You will need to use slice() to grab the top 10 sample_values,

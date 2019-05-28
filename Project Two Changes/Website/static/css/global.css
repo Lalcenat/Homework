@@ -1,0 +1,57 @@
+.container,
+.container-fluid {
+background:	#0E6D9D;
+color: white;
+
+}
+
+h3,h1 {
+    font-family: 'Anton', sans-serif;
+}
+
+.bgimage {
+    background-image: url("assets/images/map\ backgroup\ edit\ \(filter\).png");
+    background-attachment: fixed;
+    background-size: cover;
+}    
+
+.layer {
+    background-color: white;
+    opacity: 0.5;
+    background-attachment: fixed;
+    background-size: cover;
+}
+#logo {
+    height: 40px;
+    width: auto;
+}
+
+.nav {
+    background-color: white;
+    height: 50px;
+    width: auto;
+    color: 	#1FB5BD;
+    font-weight: bold;
+}
+
+
+.charts {
+    width: 100%;
+    height: auto;
+}
+
+#data-callout {
+    font-family: 'Anton', sans-serif;
+    background-color:#083c57;
+    text-align: center;
+    color: white
+}
+
+#home-body, #summary {
+    text-align: center;
+    margin-top:20%;
+}
+
+#process {
+    margin-top: 5%;
+}
